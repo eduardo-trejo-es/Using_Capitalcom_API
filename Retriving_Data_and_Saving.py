@@ -6,7 +6,7 @@ import http.client
 import pandas as pd
 
 from pathlib import Path
-import csv
+
 
 
 ####    Create_Session_Get_CTSandX-Security   ####
@@ -29,8 +29,8 @@ def SavingDataPrices(From, to,csvFileName):
     ####    Historical_pricesCapitalAPI   ########
     conn = http.client.HTTPSConnection("api-capital.backend-capital.com")
     payload = ''
-    headers = {'X-SECURITY-TOKEN': 'fLaveMLHZ8DnmDJ6UkKzB00pAgWeUqP',
-    'CST': 'k18WyLxg5bFCwMmRfaRiPUk5',
+    headers = {'X-SECURITY-TOKEN': 'iLV7Cw4xvpKhybZ1KgI7BaLp8BPAgNh',
+    'CST': '9uNIG9UiIrMCeirmvE9WebBX',
     'Content-Type': 'application/json'
     }
     conn.request("GET", HistoricalPriceRequests, payload, headers)
@@ -62,21 +62,20 @@ def SavingDataPrices(From, to,csvFileName):
      
     try:
         existing=pd.read_csv(csvFileName, index_col="Unnamed: 0")
+        #print(existing)
+        #print(type(existing))
+        existing = existing.append(df)
+        print("was try")
         print(existing)
-        print(type(existing))
+        existing.to_csv(path_or_buf=csvFileName,index=True)
+        
     except :
         print("was execpt")
-        pass
-    
-    existing = existing.append(df)
-    
-    existing.to_csv(path_or_buf=csvFileName,index=True)
+        df.to_csv(path_or_buf=csvFileName,index=True)
     
     
-    
-   
+
 
 #Create_session_Capital_API('ZvcGksoM06wlEh3L')
 
-SavingDataPrices("2018-03-01T12:00:00", "2018-03-02T14:00:00","/Users/eduardo/Desktop/Capital API/Creating_DataSet/TestingDataCSV.csv")
-
+SavingDataPrices("2022-09-01T06:00:00", "2022-09-03T20:00:00","TestingDataCSV.csv")
