@@ -29,8 +29,8 @@ def SavingDataPrices(From, to,csvFileName):
     ####    Historical_pricesCapitalAPI   ########
     conn = http.client.HTTPSConnection("api-capital.backend-capital.com")
     payload = ''
-    headers = {'X-SECURITY-TOKEN': 'iLV7Cw4xvpKhybZ1KgI7BaLp8BPAgNh',
-    'CST': '9uNIG9UiIrMCeirmvE9WebBX',
+    headers = {'X-SECURITY-TOKEN': 'NyxxE0B6a2LCjguxb0YEpFwv10BRbV0',
+    'CST': 'xC31AGozXbdTShdy7QmHETyv',
     'Content-Type': 'application/json'
     }
     conn.request("GET", HistoricalPriceRequests, payload, headers)
@@ -76,6 +76,6 @@ def SavingDataPrices(From, to,csvFileName):
     
 
 
-#Create_session_Capital_API('ZvcGksoM06wlEh3L')
+#Create_session_Capital_API('JKn8CHaaQVA6VHsz')
 
-SavingDataPrices("2022-09-01T06:00:00", "2022-09-03T20:00:00","TestingDataCSV.csv")
+SavingDataPrices("2022-09-01T06:00:00", "2022-09-06T08:00:00","TestingDataCSV.csv")
