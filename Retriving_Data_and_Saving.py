@@ -76,6 +76,6 @@ def SavingDataPrices(From, to,csvFileName):
     
 
 
-#Create_session_Capital_API('FTtqwDf12e08Fy0d')
+Create_session_Capital_API('faSfbYjttKRuspDj')
 
-SavingDataPrices("2022-09-01T06:00:00", "2022-09-06T21:00:00","TestingDataCSV.csv")
+#SavingDataPrices("2022-09-01T00:00:00", "2022-09-06T00:00:00","TestingDataCSV.csv")
