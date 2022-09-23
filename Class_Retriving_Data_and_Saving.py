@@ -54,10 +54,13 @@ class CapitalAPI_Retriver_Piceses_Data:
         print(data_json)
         try:
             prices_Data=data_json['prices']
+            self.saving_data(prices_Data,csvFileName)
         except:
             print(data_json)
 
         #####      Saving Data In CSV file   ####
+    
+    def saving_data(self, prices_Data,csvFileName):
 
         columnsNames=["openPrice","closePrice","highPrice","lowPrice","lastTradedVolume"]
         DateIndexName=[]

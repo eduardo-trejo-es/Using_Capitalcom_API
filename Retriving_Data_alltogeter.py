@@ -11,7 +11,7 @@ from Class_Retriving_Data_and_Saving import CapitalAPI_Retriver_Piceses_Data
 
 Capital_Retriver = CapitalAPI_Retriver_Piceses_Data ('7GqXIC9z32VU8xfR')
 
-dates_From, DatesTo=Capital_Retriver.generateBussinesDaysrange("2021-02-27","2021-03-03")
+dates_From, DatesTo=Capital_Retriver.generateBussinesDaysrange("2020-04-10","2022-09-22")
 #Capital_Retriver.SavingDataPrices("2020-02-25T03:00:00", "2020-02-25T10:00:00","Twttr/DataMinuteTwttr.csv")
 
 
