@@ -18,8 +18,11 @@ from pathlib import Path
 class CapitalAPI_Retriver_Piceses_Data:
     def __init__(self,X_CAP_API_KEY):
         Response=self.Create_session_Capital_API(X_CAP_API_KEY)
-        self.X_SECURITY_TOKEN=Response['X-SECURITY-TOKEN']
-        self.cst=Response['CST']
+        try:
+            self.X_SECURITY_TOKEN=Response['X-SECURITY-TOKEN']
+            self.cst=Response['CST']
+        except:
+            print("Inicial Capital Session response was not as expected")
 
     def Create_session_Capital_API(self, X_CAP_API_KEY):
 
@@ -101,3 +104,25 @@ class CapitalAPI_Retriver_Piceses_Data:
         for i in Bdate:
             toDates.append(i+np.timedelta64(14,'h'))
         return fromDates,toDates
+    
+    def Generating_Time_colum(self,DataFramePath,NewFileName):
+        df=pd.read_csv(DataFramePath, index_col="Unnamed: 0")
+        #Separate dates for future plotting
+        Data_dates = df.index
+        Data_dates=pd.to_datetime(Data_dates,utc=True)
+        Data_dates=Data_dates.tz_localize(None)
+
+
+        NewTimeColumData=Data_dates
+        PDNewTimeColumData=[]
+        gettimemapped=""
+        for  i in NewTimeColumData:
+            gettimemapped=str(i)[12:13]+str(i)[14:16]
+            PDNewTimeColumData.append(float(gettimemapped))
+
+        print(len(PDNewTimeColumData))
+
+
+        df["Time"]=PDNewTimeColumData
+            
+        df.to_csv(path_or_buf=NewFileName,index=True)
