@@ -39,7 +39,7 @@ class CapitalAPI_Retriver_Piceses_Data:
 
 
     def SavingDataPrices(self,From, to,csvFileName):
-        HistoricalPriceRequests="/api/v1/prices/TWTR?resolution=MINUTE&max=1000&from={}&to={}".format(From,to)
+        HistoricalPriceRequests="/api/v1/prices/TWTR?resolution=HOUR&max=1000&from={}&to={}".format(From,to)
         ####    Historical_pricesCapitalAPI   ########
         conn = http.client.HTTPSConnection("api-capital.backend-capital.com")
         payload = ''
@@ -102,7 +102,7 @@ class CapitalAPI_Retriver_Piceses_Data:
             
         toDates=[]
         for i in Bdate:
-            toDates.append(i+np.timedelta64(14,'h'))
+            toDates.append(i+np.timedelta64(21,'h'))
         return fromDates,toDates
     
     def Generating_Time_colum(self,DataFramePath,NewFileName):
