@@ -9,10 +9,10 @@ from Class_Retriving_Data_and_Saving import CapitalAPI_Retriver_Piceses_Data
 
 
 
-Capital_Retriver = CapitalAPI_Retriver_Piceses_Data ('iVxVv4E6D2Xl6YH4')
+Capital_Retriver = CapitalAPI_Retriver_Piceses_Data ('zG0zNcJg9hz01w1R')
 #2022-09-30
 
-dates_From, DatesTo=Capital_Retriver.generateBussinesDaysrange("2018-03-26","2022-10-02")
+dates_From, DatesTo=Capital_Retriver.generateBussinesDaysrange("2022-10-04","2022-10-05")
 #Capital_Retriver.SavingDataPrices("2020-02-25T03:00:00", "2020-02-25T10:00:00","Twttr/DataMinuteTwttr.csv")
 for i in range(0,len(dates_From)):
     date_from=str(dates_From[i])
