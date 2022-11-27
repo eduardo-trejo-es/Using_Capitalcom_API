@@ -19,6 +19,7 @@ class CapitalAPI_Retriver_Piceses_Data:
     def __init__(self,X_CAP_API_KEY):
         Response=self.Create_session_Capital_API(X_CAP_API_KEY)
         try:
+            print(Response)
             self.X_SECURITY_TOKEN=Response['X-SECURITY-TOKEN']
             self.cst=Response['CST']
         except:
@@ -33,13 +34,14 @@ class CapitalAPI_Retriver_Piceses_Data:
         }
         headers =  {'X-CAP-API-KEY': X_CAP_API_KEY,'Content-Type': 'application/json'}
         response = requests.post(api_url,data=json.dumps(credencial),headers=headers)
-        print(type(response.headers))
+        print(response.headers)
         
         return response.headers
 
 
-    def SavingDataPrices(self,From, to,csvFileName):
-        HistoricalPriceRequests="/api/v1/prices/TWTR?resolution=HOUR&max=1000&from={}&to={}".format(From,to)
+    def SavingDataPrices(self,Epic,From, to,csvFileName):
+        print("this is the epic used= {}".format(Epic))
+        HistoricalPriceRequests="/api/v1/prices/{}?resolution=DAY&max=1000&from={}&to={}".format(Epic,From,to)
         ####    Historical_pricesCapitalAPI   ########
         conn = http.client.HTTPSConnection("api-capital.backend-capital.com")
         payload = ''
@@ -95,8 +97,9 @@ class CapitalAPI_Retriver_Piceses_Data:
             df.to_csv(path_or_buf=csvFileName,index=True)
     
     def generateBussinesDaysrange(self,Datefrom, Dateto):
-        fromDates=[]
         Bdate=pd.bdate_range(start=Datefrom, end=Dateto)
+        
+        fromDates=[]
         for i in Bdate:
             fromDates.append(i+np.timedelta64(3,'h'))
             
