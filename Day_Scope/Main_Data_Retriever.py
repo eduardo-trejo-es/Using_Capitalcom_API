@@ -14,7 +14,7 @@ Capital_Retriver = CapitalAPI_Retriver_Piceses_Data ('33cyVAO5vCC6y9Fp')
 
 #Capital_Retriver.SavingDataPrices("2020-02-25T03:00:00", "2020-02-25T10:00:00","Twttr/DataMinuteTwttr.csv")
 
-Capital_Retriver.SavingDataPrices("OIL_CRUDE","2020-01-25T00:00:00", "2020-02-25T00:00:00","/Users/eduardo/Desktop/Using_Capitalcom_API/Day_Scope/Twttr/DataHourTwttr.csv")
+Capital_Retriver.SavingDataPrices("OIL_CRUDE","2012-05-01T00:00:00", "2012-06-01T00:00:00","/Users/eduardo/Desktop/Using_Capitalcom_API/Day_Scope/CRUDE_OIL/DataHourCRUDE_OIL.csv")
  
 
     
